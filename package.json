@@ -1,0 +1,9 @@
+{
+  "name": "capivara-computer-club",
+  "version": "1.0.0",
+  "description": "landing page - c3 club",
+  "main": "src/index.js",
+  "author": "Pedro Luis Dias <luisp.diias@gmail.com>",
+  "license": "UNLICENSED",
+  "private": false
+}
