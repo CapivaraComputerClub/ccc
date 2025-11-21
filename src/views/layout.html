@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C3: Clube de computação capivara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'dark': '#0f0f0f',
+                        'darker': '#0a0a0a',
+                        'accent': '#9c3e32',
+                        'accent-light': '#9c3e32',
+                        'muted': '#adacac',
+                        'border': '#262626',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-rotate {
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-darker text-white font-sans antialiased">
+    <button id="mobile-menu-btn" class="fixed top-6 right-6 z-50 lg:hidden bg-dark border border-border rounded-lg p-3 text-white hover:bg-neutral-800 transition-all">
+        <i class="fas fa-bars text-xl"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <nav id="sidebar" class="w-80 bg-dark border-r border-border fixed h-screen overflow-hidden flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 z-40">
+            <div class="flex-shrink-0 p-8 border-b border-border">
+                <div class="flex items-center justify-center mb-6">
+                    logo
+                </div>
+                <p class="text-center font-mono text-sm text-muted mt-2">The computer club of the Serra da Capivara territory</p>
+         
+            </div>
+            
+      
+            <div class="flex-1 overflow-y-auto py-6">
+                <ul class="space-y-1 px-4">
+                    <li><a href="#inicio" class="nav-link active flex items-center py-3 px-4 text-white bg-accent/10 border-l-2 border-accent rounded-r transition-all duration-200 hover:bg-accent/20 group">
+                        <i class="fas fa-home w-5 text-accent mr-3"></i>
+                        <span>Início</span>
+                    </a></li>
+                    <li><a href="#sobre" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-info-circle w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Sobre o C3</span>
+                    </a></li>
+                    <li><a href="#atividades" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-laptop-code w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Atividades</span>
+                    </a></li>
+                    <li><a href="#projetos" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-folder-open w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Projetos</span>
+                    </a></li>
+                    <li><a href="#equipe" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-users w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Participe da C3</span>
+                    </a></li>
+                    <li><a href="#eventos" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-calendar-alt w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Eventos</span>
+                    </a></li>
+                    <li><a href="#contato" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-envelope w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Apoie a C3</span>
+                    </a></li>
+                    <li><a href="" class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
+                        <i class="fas fa-phone w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                        <span>Código de Conduta</span>
+                    </a></li>
+                </ul>
+                
+   
+                <div class="px-4 py-4 mx-4">
+                    <h3 class="text-xs font-semibold text-muted uppercase tracking-wider mb-4">Redes Sociais</h3>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="mt-8 px-4 py-6 mx-4 border-t border-border">
+                    <h3 class="text-xs font-semibold text-muted uppercase tracking-wider mb-4">Apoiadores</h3>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <a href="https://www.teresinahacker.club/" aria-label="THC" class="flex items-center justify-center bg-transparent rounded-lg p-2 hover:bg-accent/10 transition-all">
+                            <img src="https://www.teresinahacker.club/assets/images/logo.png" alt="THC" class="w-12 h-12 object-contain" />
+                        </a>
+
+                        
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="#contato" class="block text-center px-3 py-2 bg-dark border border-border rounded-lg text-sm text-white hover:bg-accent/10 transition-all">
+                            Seja um apoiador
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </nav>
+
+        <main class="flex-1 lg:ml-80 min-h-screen">
+            {{{body}}}
+        </main>
+    </div>
+
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-30 hidden lg:hidden"></div>
+</body>
+</html>
