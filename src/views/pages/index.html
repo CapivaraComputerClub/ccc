@@ -1,18 +1,25 @@
 <section
     class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-dark to-darker">
-    <div class="absolute inset-0 opacity-30">
-        <div class="absolute inset-0"
-            style="background-image: radial-gradient(circle at 2px 2px, rgb(246, 115, 59) 1px, transparent 0); background-size: 40px 40px;">
-        </div>
+
+    <div class="absolute inset-0 z-0">
+        <video autoplay muted loop playsinline poster="/assets/images/bg-poster.jpg"
+            class="w-full h-full object-cover opacity-30 filter brightness-20 pointer-events-none" style="z-index:-1;">
+            <source src="/video/background.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-dark  to-transparent"></div>
     </div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-2 py-20 text-center">
 
-        <h1
-            class="text-5xl md:text-7xl font-mono mb-6 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-transparent">
-            C3: Clube de Computação Capivara
-        </h1>
-        <p class="text-xl md:text-2xl text-neutral-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <div class="relative w-full">
+            <h1
+                class="relative z-10 text-5xl md:text-7xl font-mono mb-6 bg-gradient-to-r from-white to-neutral-200 bg-clip-text text-transparent">
+                C3: Clube de Computação Capivara
+            </h1>
+        </div>
+        <p class="text-xl md:text-2xl text-neutral-200 mb-12 max-w-3xl mx-auto leading-relaxed">
             O primeiro hacker club da região da Serra da Capivara, dedicado a promover, democratizar e difundir a
             cultura tech e colaboração.
         </p>
@@ -43,4 +50,5 @@
                 <i class="fas fa-user-plus mr-2"></i>Como participar da C3
             </a>
         </div>
-
+    </div>
+</section>
