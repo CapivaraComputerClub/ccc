@@ -6,7 +6,12 @@ import * as http from "http";
 const viewsPath = path.join(process.cwd(), "src/views/");
 const publicDir = path.join(process.cwd(), "public");
 
-const routes = [{ path: "/", template: "pages/index.html", useLayout: true },];
+const routes = [
+  { path: "/", template: "pages/index.html", useLayout: true },
+  { path: "/about", template: "pages/about.html", useLayout: true },
+
+
+];
 
 const MIME_TYPES = {
   ".html": "text/html",
