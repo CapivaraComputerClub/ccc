@@ -6,12 +6,33 @@ import * as http from "http";
 const viewsPath = path.join(process.cwd(), "src/views/");
 const publicDir = path.join(process.cwd(), "public");
 
-const routes = [
+const templateRoutes = [
   { path: "/", template: "pages/index.html", useLayout: true },
   { path: "/about", template: "pages/about.html", useLayout: true },
   { path: "/code-of-conduct", template: "pages/code-of-conduct.html", useLayout: true },
+  { path: "/activities", template: "pages/activities.html", useLayout: true },
+  { path: "/projects", template: "pages/projects.html", useLayout: true },
+  { path: "/join", template: "pages/join.html", useLayout: true },
+];
 
 
+const eventsHandler = (req, res) => {
+  const events = [
+    {
+      id: 1,
+      title: "CCC Hack Day 1.0",
+      date: "",
+      description: "A primeira reunião oficial do Clube de Computação Capivara (C3)! Será discutido o planejamento das atividades do clube, apresentação dos membros fundadores e definição dos próximos passos.",
+      location: "São Raimundo Nonato, Piauí, Brasil",
+      submissionLink: ""
+    }];
+    
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify(events));
+};
+
+const apiRoutes = [
+  { path: "/events", handler: eventsHandler, method: "GET" },
 ];
 
 const MIME_TYPES = {
@@ -70,7 +91,7 @@ http.Server.prototype.emit = function (event, ...args) {
 };
 
 const server = new Server((req, res) => {
-  const route = routes.find((r) => r.path === req.url);
+  const templateRoute = templateRoutes.find((r) => r.path === req.url);
 
   const serveHTML = (file, extendFrom = undefined) => {
     let extendedFile = null;
@@ -83,25 +104,38 @@ const server = new Server((req, res) => {
 
     fs.readFile(fullPath, "utf8", (err, data) => {
       if (err) {
-        res.writeHead(500, { "Content-Type": "text/plain" });
-        return res.end("Internal Server Error");
+        if (!res.headersSent) {
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          return res.end("Internal Server Error");
+        }
+        return;
       }
 
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end(data.replace("{{{body}}}", extendedFile || ""));
+      if (!res.headersSent) {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(data.replace("{{{body}}}", extendedFile || ""));
+      }
     });
   };
 
-  if (route) {
-    if (route.useLayout) {
-      serveHTML("layout.html", route.template);
+  const apiRoute = apiRoutes.find((r) => ('/api' + r.path) === req.url);
+  if (apiRoute && req.method === apiRoute.method) {
+    apiRoute.handler(req, res);
+    return;
+  }
+
+  if (templateRoute) {
+    if (templateRoute.useLayout) {
+      serveHTML("layout.html", templateRoute.template);
       return;
     }
 
-    serveHTML(route.template);
-  } else {
-    serveHTML("404.html");
+    serveHTML(templateRoute.template);
+    return;
   }
+
+  serveHTML("404.html");
+  return;
 });
 
 const PORT = process.env.PORT || 3000;
