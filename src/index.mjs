@@ -9,6 +9,7 @@ const publicDir = path.join(process.cwd(), "public");
 const routes = [
   { path: "/", template: "pages/index.html", useLayout: true },
   { path: "/about", template: "pages/about.html", useLayout: true },
+  { path: "/code-of-conduct", template: "pages/code-of-conduct.html", useLayout: true },
 
 
 ];
