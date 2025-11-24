@@ -35,35 +35,7 @@
         }
     </script>
     <style>
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
 
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-rotate {
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
     </style>
 </head>
 
@@ -108,7 +80,7 @@
                     <li><a href="/activities"
                             class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
                             <i
-                                class="fas fa-laptop-code w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
+                                class="fas fa-calendar-alt w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
                             <span>Atividades</span>
                         </a></li>
                     <li><a href="/projects"
@@ -121,12 +93,6 @@
                             class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
                             <i class="fas fa-users w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
                             <span>Participe da C3</span>
-                        </a></li>
-                    <li><a href="/events"
-                            class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
-                            <i
-                                class="fas fa-calendar-alt w-5 text-muted group-hover:text-accent mr-3 transition-colors"></i>
-                            <span>Eventos</span>
                         </a></li>
                     <li><a href="/support"
                             class="nav-link flex items-center py-3 px-4 text-muted hover:text-white hover:bg-neutral-800/50 rounded-r transition-all duration-200 group">
@@ -188,10 +154,70 @@
 
         <main class="flex-1 lg:ml-80 min-h-screen">
             {{{body}}}
+
+             <footer class="border-t border-border bg-darker px-2 py-8 text-sm text-muted">
+                <div
+                    class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <p class="text-white font-semibold">CCC: O Clube de Computação do território da Serra da
+                                Capivara. </p>
+                            <p class="text-muted text-xs">O primeiro hacker club da região da Serra da Capivara,
+                                dedicado a
+                                promover, democratizar e difundir a cultura tech colaborativa e inclusiva.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-8">
+                        <div>
+                            <h4 class="text-xs uppercase tracking-wider text-muted mb-2">Links</h4>
+                            <ul class="space-y-1">
+                                <li><a href="/" class="hover:text-white">Início</a></li>
+                                <li><a href="/about" class="hover:text-white">Sobre</a></li>
+                                <li><a href="/projects" class="hover:text-white">Projetos</a></li>
+                                <li><a href="/activities" class="hover:text-white">Atividades</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div>
+                            <h4 class="text-xs uppercase tracking-wider text-muted mb-2">Siga-nos</h4>
+                            <div class="flex gap-3">
+                                <a href="https://github.com/CapivaraComputerClub"
+                                    class="w-9 h-9 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all"
+                                    aria-label="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-9 h-9 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all"
+                                    aria-label="Telegram">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-9 h-9 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-accent hover:text-white transition-all"
+                                    aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto mt-6 pt-6 border-t border-border text-center text-xs text-muted">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <p>© C3: Clube de Computação Capivara. All rights reserved.
+                            版权所有.</p>
+                        <p><a href="/code-of-conduct" class="hover:text-white">Código de Conduta</a> · <a
+                                href="/support" class="hover:text-white">Apoie a C3</a></p>
+                    </div>
+                </div>
+
+            </footer>
         </main>
     </div>
 
     <div id="mobile-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-30 hidden lg:hidden"></div>
 
 </body>
+
 </html>
