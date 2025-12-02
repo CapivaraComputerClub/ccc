@@ -6,14 +6,16 @@
   "author": "Pedro Luis Dias <luisp.diias@gmail.com>",
   "license": "UNLICENSED",
   "type": "module",
-  "private": false,
   "scripts": {
     "start": "node src/index.mjs",
-    "dev": "nodemon  src/index.mjs"
+    "dev": "nodemon  src/index.mjs",
+    "build:css": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/dist.css --watch"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "^0.7.10",
-    "nodemon": "^3.1.11"
-  },
-  "dependencies": {}
+    "autoprefixer": "^10.4.22",
+    "nodemon": "^3.1.11",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
 }
